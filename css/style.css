@@ -1,8 +1,7 @@
-body {
-  background-color: #efefef;
-  font-size: 14px;
-  color: #333;
-  margin: 0;
+@charset "utf-8";
+
+html, body {
+  height: 100%;
 }
 
 h1,h2,h3,h4,h5{
@@ -18,13 +17,26 @@ ul {
   padding-inline-start: 0;
 }
 /* common */
+.wrapper {
+  background-color: #efefef;
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
 .clearfix:after {
   display: block;
   content: "";
   clear: both;
 }
 
-.contents--title {
+.flex_box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items:flex-start;
+}
+
+.contents__title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -32,52 +44,52 @@ ul {
 /* common */
 
 /* header */
-.header--area {
+.header-area {
   padding: 10px 0 40px 0;
 }
 
-.container {
-  width: 920px;
-  margin: 0 auto;
-}
-
-.header--title--area {
+.header__title__area {
   margin: 30px 0;
 }
 
-.main--logo {
+.header__title {
   font-size: 32px;
 }
 
-.sub--text {
+.header__sub__text {
   color: #777;
 }
 
-.header--navigation {
+.header-navigation {
   background-color: #fff;
   padding: 20px 0;
 }
 
-.nav--button {
+.nav__button {
   float: left;
   padding: 0 30px;
   text-align: center;
   list-style-type: none;
 }
 
-.nav--button a {
+.nav__button a {
   color: #333;
   text-decoration: none;
 }
 /* header */
 
 /* main */
-.left--contents {
+.container {
+  width: 920px;
+  margin: 0 auto;
+}
+
+.left-contents {
   width: 600px;
   float: left;
 }
 
-.card--contents {
+.contents__items {
   padding: 40px;
   display: block;
   margin-bottom: 20px;
@@ -89,24 +101,23 @@ ul {
 }
 
 /* staff--list */
-.staff--list {
+.staff__list {
   margin-left: 35px;
-  float: left;
   list-style: none;
 }
 
-.staff--list:nth-child(3n+1) {
+.staff__list:nth-child(3n+1) {
   margin-left: 0;
 }
 
-.staff--img {
+.staff__img {
   width: 150px;
   height: 150px;
   display: block;
 }
 
 /* Access */
-.right--contents {
+.right-contents {
   width: 300px;
   margin-left: 20px;
   float: left;
@@ -115,12 +126,45 @@ ul {
 
 /* footer */
 
-.footer {
-  padding-top: 40px;
-}
-
 .copyright {
+  margin-top: 40px;
   color: #777;
   text-align: center;
 }
 /* footer */
+
+@media screen and (max-width: 767px) {
+
+  /* main */
+  .container {
+    width: 97%;
+  }
+  .left-contents {
+    width: 100%;
+    float: none;
+  }
+
+  .right-contents {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+  }
+
+  .contents__items:last-child {
+    margin-bottom: 20px;
+  }
+
+  /* staff--list */
+  .staff__list {
+    /* margin-left: 0; */
+    margin-left: 15px;
+    flex-basis: 30%;
+  }
+
+  .staff__list:nth-child(3n+1) {
+    /* margin-left: 0; */
+    margin-left: 15px;
+  }
+  /* main */
+
+}
